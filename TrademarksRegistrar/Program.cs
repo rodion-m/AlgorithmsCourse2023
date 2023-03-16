@@ -1,3 +1,15 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using TrademarksRegistrar;
 
-Console.WriteLine("Hello, World!");
+var registrar = new Registrar();
+string[] queries =
+{
+    "Booble", "yyyess", "oooops", "oooooopppss", "Boooble", "yyessss", "oooops", "ooooppssss"
+};
+
+foreach (var query in queries)
+{
+    registrar.Register(query);
+}
+
+
+Console.WriteLine(registrar.Count);
