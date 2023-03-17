@@ -5,7 +5,7 @@ public class Registrar
     public int Count => _registered.Count;
     private readonly HashSet<string> _registered = new();
 
-    public bool Register(string trademark)
+    public bool TryRegister(string trademark)
     {
         var normalized = NormalizeTrademark(trademark);
         return _registered.Add(normalized);

@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrademarksRegistrar", "Trad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyHashSetLib", "MyHashSetLib\MyHashSetLib.csproj", "{52D5BE78-9D8C-43BB-AFF5-44C29F206733}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTreeLesson", "BinaryTreeLesson\BinaryTreeLesson.csproj", "{81091ACA-C76D-4E31-A1E9-4E072012550A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{52D5BE78-9D8C-43BB-AFF5-44C29F206733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52D5BE78-9D8C-43BB-AFF5-44C29F206733}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52D5BE78-9D8C-43BB-AFF5-44C29F206733}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81091ACA-C76D-4E31-A1E9-4E072012550A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81091ACA-C76D-4E31-A1E9-4E072012550A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81091ACA-C76D-4E31-A1E9-4E072012550A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81091ACA-C76D-4E31-A1E9-4E072012550A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
