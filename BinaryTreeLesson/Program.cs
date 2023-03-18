@@ -16,14 +16,12 @@ dmitriy.RightChild = anna;
 // Создаем дерево родословной и устанавливаем корень
 var familyTree = new FamilyTree(aleksey);
 
-Console.WriteLine(familyTree.GetDepthOfTree());
-
-familyTree.BFSUsingQueue(familyTree.Root);
+familyTree.PrintTree(familyTree.Root);
 
 // Выводим структуру дерева на экран
 //familyTree.PrintTree(familyTree.Root);
 
-record Person
+public record Person
 {
     public string Name { get; set; }
     public Person? LeftChild { get; set; }
@@ -77,51 +75,5 @@ class FamilyTree
         }
 
         return maxDepth;
-    }
-    
-    public void DFSUsingStack(Person? root)
-    {
-        if (root == null) return;
-
-        Stack<Person> stack = new Stack<Person>();
-        stack.Push(root); //Алексей
-
-        while (stack.Count > 0)
-        {
-            Person current = stack.Pop(); //1: Алексей, 2: Иван
-            Console.WriteLine(current.Name);
-
-            if (current.RightChild != null)
-            {
-                stack.Push(current.RightChild);
-            }
-            if (current.LeftChild != null)
-            {
-                stack.Push(current.LeftChild);
-            }
-        }
-    }
-
-    public void BFSUsingQueue(Person root)
-    {
-        if (root == null) return;
-
-        Queue<Person> queue = new Queue<Person>();
-        queue.Enqueue(root);
-
-        while (queue.Count > 0)
-        {
-            Person current = queue.Dequeue();
-            Console.WriteLine(current.Name);
-
-            if (current.LeftChild != null)
-            {
-                queue.Enqueue(current.LeftChild);
-            }
-            if (current.RightChild != null)
-            {
-                queue.Enqueue(current.RightChild);
-            }
-        }
     }
 }
