@@ -1,5 +1,22 @@
 ﻿![Graph](friends_graph.svg)
 
+```mermaid
+flowchart  LR
+%% https://mermaid.js.org/syntax/flowchart.html
+    A[Bill] --- B[Steve]
+    A --- C[Elon]
+    A --- G[Jeff]
+    B --- C
+    B --- D[Larry]
+    C --- D
+    C --- G
+    D --- E[Sergey]
+    D --- F[Sheryl]
+    E --- F
+    F --- H[Mark]
+    G --- H
+```
+
 | [Матрица смежности] | Bill | Steve | Elon | Larry | Sergey | Sheryl | Jeff | Mark |
 |---------------------|------|-------|------|-------|--------|--------|------|------|
 | [0] Bill            | 0    | 1     | 1    | 0     | 0      | 0      | 1    | 0    |
