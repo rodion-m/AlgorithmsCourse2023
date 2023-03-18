@@ -1,0 +1,36 @@
+graph Friends {
+    // Graph settings
+    splines=polyline; // Use polyline splines for edges
+    bgcolor=transparent; // Set the background color to transparent
+    size="6,4"; // Set the graph size in inches
+    dpi=80; // Set the graph resolution in dots per inch
+    ratio=fill; // Scale the graph to fill the available space
+    ranksep=0.13; // Set the separation between ranks (rows) in inches
+    nodesep=0.2; // Set the separation between nodes in inches
+    node [shape=circle, fontname="Arial", fontsize=25]; // Set the default node attributes
+    edge [color=gray50, penwidth=5.5]; // Set the default edge attributes
+
+    // Nodes
+    "Bill Gates" [style=filled, fillcolor=lightskyblue];
+    "Steve Jobs" [style=filled, fillcolor=lightskyblue];
+    "Elon Musk" [style=filled, fillcolor=lightskyblue];
+    "Larry Page" [style=filled, fillcolor=lightskyblue];
+    "Sergey Brin" [style=filled, fillcolor=lightskyblue];
+    "Sheryl Sandberg" [style=filled, fillcolor=lightskyblue];
+    "Jeff Bezos" [style=filled, fillcolor=lightskyblue];
+    "Mark Zuckerberg" [style=filled, fillcolor=lightskyblue];
+
+    // Edges
+    "Bill Gates" -- "Steve Jobs";
+    "Bill Gates" -- "Elon Musk";
+    "Bill Gates" -- "Jeff Bezos";
+    "Steve Jobs" -- "Larry Page";
+    "Steve Jobs" -- "Elon Musk";
+    "Elon Musk" -- "Larry Page";
+    "Elon Musk" -- "Jeff Bezos";
+    "Larry Page" -- "Sergey Brin";
+    "Larry Page" -- "Sheryl Sandberg";
+    "Sergey Brin" -- "Sheryl Sandberg";
+    "Sheryl Sandberg" -- "Mark Zuckerberg";
+    "Jeff Bezos" -- "Mark Zuckerberg";
+}

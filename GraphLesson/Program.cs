@@ -1,3 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Towel.DataStructures;
 
 Console.WriteLine("Hello, World!");

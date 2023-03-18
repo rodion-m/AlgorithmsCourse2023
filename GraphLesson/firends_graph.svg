@@ -1,0 +1,114 @@
+<?xml version="1.0" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="479pt" height="320pt" viewBox="0.00 0.00 431.54 288.00">
+<g id="graph0" class="graph" transform="translate(12.80842339094113,261.6552484863031) scale(0.15692779996764494)" data-name="Friends">
+
+<!-- Bill Gates -->
+<g id="node1" class="node" pointer-events="visible" data-name="Bill Gates">
+
+<ellipse fill="lightskyblue" stroke="black" cx="1559.76" cy="-1505" rx="86.92" ry="86.92"/>
+<text text-anchor="middle" x="1559.76" y="-1497.5" font-family="Arial" font-size="25.00">Bill Gates</text>
+</g>
+<!-- Steve Jobs -->
+<g id="node2" class="node" pointer-events="visible" data-name="Steve Jobs">
+
+<ellipse fill="lightskyblue" stroke="black" cx="918.76" cy="-1310" rx="98.54" ry="98.54"/>
+<text text-anchor="middle" x="918.76" y="-1302.5" font-family="Arial" font-size="25.00">Steve Jobs</text>
+</g>
+<!-- Bill Gates&#45;&#45;Steve Jobs -->
+<g id="edge1" class="edge" data-name="Bill Gates--Steve Jobs">
+
+<path fill="none" stroke="#7f7f7f" stroke-width="5.5" d="M1476.61,-1478.97C1357.37,-1443.06 1138.41,-1377.14 1013.21,-1339.44"/>
+</g>
+<!-- Elon Musk -->
+<g id="node3" class="node" pointer-events="visible" data-name="Elon Musk">
+
+<ellipse fill="lightskyblue" stroke="black" cx="1315.76" cy="-1109" rx="93.68" ry="93.68"/>
+<text text-anchor="middle" x="1315.76" y="-1101.5" font-family="Arial" font-size="25.00">Elon Musk</text>
+</g>
+<!-- Bill Gates&#45;&#45;Elon Musk -->
+<g id="edge2" class="edge" data-name="Bill Gates--Elon Musk">
+
+<path fill="none" stroke="#7f7f7f" stroke-width="5.5" d="M1514.43,-1430.81C1471.92,-1362.16 1408.5,-1259.77 1364.81,-1189.22"/>
+</g>
+<!-- Jeff Bezos -->
+<g id="node7" class="node" pointer-events="visible" data-name="Jeff Bezos">
+
+<ellipse fill="lightskyblue" stroke="black" cx="1892.76" cy="-908" rx="93.7" ry="93.7"/>
+<text text-anchor="middle" x="1892.76" y="-900.5" font-family="Arial" font-size="25.00">Jeff Bezos</text>
+</g>
+<!-- Bill Gates&#45;&#45;Jeff Bezos -->
+<g id="edge3" class="edge" data-name="Bill Gates--Jeff Bezos">
+
+<path fill="none" stroke="#7f7f7f" stroke-width="5.5" d="M1601.93,-1428.64C1664.76,-1316.38 1782.46,-1106.07 1847.2,-990.4"/>
+</g>
+<!-- Steve Jobs&#45;&#45;Elon Musk -->
+<g id="edge5" class="edge" data-name="Steve Jobs--Elon Musk">
+
+<path fill="none" stroke="#7f7f7f" stroke-width="5.5" d="M1006.86,-1264.84C1074.02,-1231.17 1165.9,-1185.11 1231.97,-1152"/>
+</g>
+<!-- Larry Page -->
+<g id="node4" class="node" pointer-events="visible" data-name="Larry Page">
+
+<ellipse fill="lightskyblue" stroke="black" cx="770.76" cy="-908" rx="97.57" ry="97.57"/>
+<text text-anchor="middle" x="770.76" y="-900.5" font-family="Arial" font-size="25.00">Larry Page</text>
+</g>
+<!-- Steve Jobs&#45;&#45;Larry Page -->
+<g id="edge4" class="edge" data-name="Steve Jobs--Larry Page">
+
+<path fill="none" stroke="#7f7f7f" stroke-width="5.5" d="M884.8,-1217.23C860.69,-1152.07 828.47,-1064.98 804.42,-1000"/>
+</g>
+<!-- Elon Musk&#45;&#45;Larry Page -->
+<g id="edge6" class="edge" data-name="Elon Musk--Larry Page">
+
+<path fill="none" stroke="#7f7f7f" stroke-width="5.5" d="M1227.89,-1075.92C1127.63,-1039.31 964.41,-979.71 862.55,-942.52"/>
+</g>
+<!-- Elon Musk&#45;&#45;Jeff Bezos -->
+<g id="edge7" class="edge" data-name="Elon Musk--Jeff Bezos">
+
+<path fill="none" stroke="#7f7f7f" stroke-width="5.5" d="M1404.33,-1077.45C1512.85,-1040.03 1695.6,-977 1804.13,-939.56"/>
+</g>
+<!-- Sergey Brin -->
+<g id="node5" class="node" pointer-events="visible" data-name="Sergey Brin">
+
+<ellipse fill="lightskyblue" stroke="black" cx="548.76" cy="-697" rx="103.85" ry="103.85"/>
+<text text-anchor="middle" x="548.76" y="-689.5" font-family="Arial" font-size="25.00">Sergey Brin</text>
+</g>
+<!-- Larry Page&#45;&#45;Sergey Brin -->
+<g id="edge8" class="edge" data-name="Larry Page--Sergey Brin">
+
+<path fill="none" stroke="#7f7f7f" stroke-width="5.5" d="M699.9,-840.3C675.67,-817.48 648.48,-791.88 623.91,-768.76"/>
+</g>
+<!-- Sheryl Sandberg -->
+<g id="node6" class="node" pointer-events="visible" data-name="Sheryl Sandberg">
+
+<ellipse fill="lightskyblue" stroke="black" cx="1019.76" cy="-442" rx="143" ry="143"/>
+<text text-anchor="middle" x="1019.76" y="-434.5" font-family="Arial" font-size="25.00">Sheryl Sandberg</text>
+</g>
+<!-- Larry Page&#45;&#45;Sheryl Sandberg -->
+<g id="edge9" class="edge" data-name="Larry Page--Sheryl Sandberg">
+
+<path fill="none" stroke="#7f7f7f" stroke-width="5.5" d="M816.57,-821.63C854.64,-750.69 909.33,-648.78 952.38,-568.55"/>
+</g>
+<!-- Sergey Brin&#45;&#45;Sheryl Sandberg -->
+<g id="edge10" class="edge" data-name="Sergey Brin--Sheryl Sandberg">
+
+<path fill="none" stroke="#7f7f7f" stroke-width="5.5" d="M640.13,-646.92C712.36,-608.12 813.98,-553.53 893.91,-510.6"/>
+</g>
+<!-- Mark Zuckerberg -->
+<g id="node8" class="node" pointer-events="visible" data-name="Mark Zuckerberg">
+
+<ellipse fill="lightskyblue" stroke="black" cx="1453.76" cy="-145" rx="144.83" ry="144.83"/>
+<text text-anchor="middle" x="1453.76" y="-137.5" font-family="Arial" font-size="25.00">Mark Zuckerberg</text>
+</g>
+<!-- Sheryl Sandberg&#45;&#45;Mark Zuckerberg -->
+<g id="edge11" class="edge" data-name="Sheryl Sandberg--Mark Zuckerberg">
+
+<path fill="none" stroke="#7f7f7f" stroke-width="5.5" d="M1137.77,-360.78C1198.77,-319.32 1273.04,-268.83 1334.25,-227.23"/>
+</g>
+<!-- Jeff Bezos&#45;&#45;Mark Zuckerberg -->
+<g id="edge12" class="edge" data-name="Jeff Bezos--Mark Zuckerberg">
+
+<path fill="none" stroke="#7f7f7f" stroke-width="5.5" d="M1846.19,-826.28C1769.62,-693.54 1616.58,-428.26 1525.9,-271.06"/>
+</g>
+</g>
+</svg>

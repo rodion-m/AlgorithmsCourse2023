@@ -9,6 +9,16 @@ public class GraphAdjacencyMatrixJaggedArray
 
     public static GraphAdjacencyMatrixJaggedArray CreateFriends()
     {
+        string[] personNames = {
+            "Bill",   //0
+            "Steve",  //1
+            "Elon",   //2
+            "Larry",  //3
+            "Sergey", //4
+            "Sheryl", //5
+            "Jeff",   //6
+            "Mark"    //7
+        };
         int[][] adjacencyMatrix = {
             // Bill, Steve, Elon, Larry, Sergey, Sheryl, Jeff, Mark
             new[] { 0, 1, 1, 0, 0, 0, 1, 0 }, // Bill Gates
@@ -37,6 +47,30 @@ public class GraphAdjacencyMatrixJaggedArray
         for (int i = 0; i < size; i++)
         {
             _matrix[i] = new int[size];
+        }
+    }
+    
+    public void DFSUsingStack(int startVertex)
+    {
+        var visited = new bool[_size];
+        var stack = new Stack<int>();
+        stack.Push(startVertex);
+        while (stack.Count > 0)
+        {
+            var vertex = stack.Pop();
+            if (visited[vertex])
+            {
+                continue;
+            }
+            visited[vertex] = true;
+            Console.WriteLine(vertex);
+            for (int i = 0; i < _size; i++)
+            {
+                if (HasEdge(vertex, i))
+                {
+                    stack.Push(i);
+                }
+            }
         }
     }
 
@@ -291,5 +325,34 @@ public class GraphAdjacencyMatrixJaggedArray
         return true;
     }
     
-    
+    public bool IsDAG()
+    {
+        if (!IsConnected())
+        {
+            return false;
+        }
+        var visited = new bool[_size];
+        var stack = new Stack<int>();
+        stack.Push(0);
+        while (stack.Count > 0)
+        {
+            var vertex = stack.Pop();
+            visited[vertex] = true;
+            for (int i = 0; i < _size; i++)
+            {
+                if (HasEdge(vertex, i))
+                {
+                    if (!visited[i])
+                    {
+                        stack.Push(i);
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
 }
