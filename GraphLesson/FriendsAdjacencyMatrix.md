@@ -9,5 +9,5 @@
 | Jeff                | 1    | 0     | 1    | 0     | 0      | 0      | 0    | 1    |
 | Mark                | 0    | 0     | 0    | 0     | 0      | 1      | 1    | 0    |
 
-![Alt text](friends_graph.svg)
+![Graph](friends_graph.svg)
 <img src="friends_graph.svg">
