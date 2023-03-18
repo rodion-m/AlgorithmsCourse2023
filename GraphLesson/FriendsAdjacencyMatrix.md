@@ -10,4 +10,3 @@
 | Mark                | 0    | 0     | 0    | 0     | 0      | 1      | 1    | 0    |
 
 ![Graph](friends_graph.svg)
-<img src="friends_graph.svg">
