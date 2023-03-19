@@ -19,7 +19,7 @@ graph LR
 ## Step 1
 ```mermaid
 graph LR
-    style A fill:#f9d0c4,stroke:#333,stroke-width:4px
+    style A stroke:green,stroke-width:4px
     A[Bill] --- B[Steve]
     A --- C[Elon]
     A --- G[Jeff]
