@@ -1,4 +1,4 @@
-﻿namespace GraphLesson;
+﻿namespace GraphLesson.Representations;
 
 public class GraphAdjacencyListUsingNode
 {

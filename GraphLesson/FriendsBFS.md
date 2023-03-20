@@ -20,6 +20,75 @@ graph LR
 ```mermaid
 graph LR
     style A stroke:green,stroke-width:4px
+    
+    A[Bill] --- B[Steve]
+    A --- C[Elon]
+    A --- G[Jeff]
+    B --- C
+    B --- D[Larry]
+    C --- D
+    C --- G
+    D --- E[Sergey]
+    D --- F[Sheryl]
+    E --- F
+    F --- H[Mark]
+    G --- H
+```
+
+## Step 2
+```mermaid
+graph LR
+    style A stroke:green,stroke-width:4px
+    style B stroke:green,stroke-width:4px
+    style C stroke:green,stroke-width:4px
+    style G stroke:green,stroke-width:4px
+    
+    A[Bill] --- B[Steve]
+    A --- C[Elon]
+    A --- G[Jeff]
+    B --- C
+    B --- D[Larry]
+    C --- D
+    C --- G
+    D --- E[Sergey]
+    D --- F[Sheryl]
+    E --- F
+    F --- H[Mark]
+    G --- H
+```
+
+## Step 3
+```mermaid
+graph LR
+    style A stroke:green,stroke-width:4px
+    style B stroke:green,stroke-width:4px
+    style C stroke:green,stroke-width:4px
+    style G stroke:green,stroke-width:4px
+    style D stroke:green,stroke-width:4px
+    
+    A[Bill] --- B[Steve]
+    A --- C[Elon]
+    A --- G[Jeff]
+    B --- C
+    B --- D[Larry]
+    C --- D
+    C --- G
+    D --- E[Sergey]
+    D --- F[Sheryl]
+    E --- F
+    F --- H[Mark]
+    G --- H
+```
+
+## Step 4
+```mermaid
+graph LR
+    style A stroke:green,stroke-width:4px
+    style B stroke:green,stroke-width:4px
+    style C stroke:green,stroke-width:4px
+    style G stroke:green,stroke-width:4px
+    style D stroke:green,stroke-width:4px
+    
     A[Bill] --- B[Steve]
     A --- C[Elon]
     A --- G[Jeff]

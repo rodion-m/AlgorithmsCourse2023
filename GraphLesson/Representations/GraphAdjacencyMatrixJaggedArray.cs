@@ -1,9 +1,8 @@
-﻿using System.Collections;
-
-namespace GraphLesson;
+﻿namespace GraphLesson.Representations;
 
 public class GraphAdjacencyMatrixJaggedArray
 {
+    private readonly string[] _personNames;
     private readonly int[][] _matrix;
     private readonly int _size;
 
@@ -30,19 +29,21 @@ public class GraphAdjacencyMatrixJaggedArray
             new[] { 1, 0, 1, 0, 0, 0, 0, 1 }, // Jeff Bezos
             new[] { 0, 0, 0, 0, 0, 1, 1, 0 }  // Mark Zuckerberg
         };
-        var graph = new GraphAdjacencyMatrixJaggedArray(adjacencyMatrix);
+        var graph = new GraphAdjacencyMatrixJaggedArray(adjacencyMatrix, personNames);
         return graph;
     }
     
-    public GraphAdjacencyMatrixJaggedArray(int[][] matrix)
+    public GraphAdjacencyMatrixJaggedArray(int[][] matrix, string[] personNames)
     {
         _size = matrix.Length;
         _matrix = matrix;
+        _personNames = personNames;
     }
 
-    public GraphAdjacencyMatrixJaggedArray(int size)
+    public GraphAdjacencyMatrixJaggedArray(int size, string[] personNames)
     {
         _size = size;
+        _personNames = personNames;
         _matrix = new int[size][];
         for (int i = 0; i < size; i++)
         {
@@ -50,29 +51,90 @@ public class GraphAdjacencyMatrixJaggedArray
         }
     }
     
+    public static GraphAdjacencyListOnDictionary MatrixToList(int[][] adjacencyMatrix, List<string> nodeNames)
+    {
+        Dictionary<string, List<string>> adjacencyList = new Dictionary<string, List<string>>();
+
+        for (int i = 0; i < adjacencyMatrix.Length; i++)
+        {
+            string currentNode = nodeNames[i];
+            List<string> connectedNodes = new List<string>();
+
+            for (int j = 0; j < adjacencyMatrix[i].Length; j++)
+            {
+                var hasEdge = adjacencyMatrix[i][j] == 1;
+                if (hasEdge) connectedNodes.Add(nodeNames[j]);
+            }
+
+            adjacencyList[currentNode] = connectedNodes;
+        }
+
+        return new GraphAdjacencyListOnDictionary(adjacencyList);
+    }
+
+    public void Print()
+    {
+        for (int i = 0; i < _matrix.Length; i++)
+        {
+            for (int j = 0; j < _matrix[i].Length; j++)
+            {
+                Console.Write(_matrix[i][j] + "\t");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    public void BFSUsingQueue(int startVertex)
+    {
+        var visited = new bool[_size];
+        var queue = new Queue<int>();
+        queue.Enqueue(startVertex);
+        while (queue.Count != 0)
+        {
+            var vertex = queue.Dequeue();
+            if (!visited[vertex])
+            {
+                visited[vertex] = true;
+                Console.WriteLine(_personNames[vertex]);
+                for (int i = 0; i < _size; i++)
+                {
+                    if (HasEdge(vertex, i) && !visited[i])
+                    {
+                        queue.Enqueue(i);
+                    }
+                }
+            }
+        }
+    }
+
     public void DFSUsingStack(int startVertex)
     {
         var visited = new bool[_size];
         var stack = new Stack<int>();
         stack.Push(startVertex);
-        while (stack.Count > 0)
+        while (stack.Count != 0)
         {
             var vertex = stack.Pop();
-            if (visited[vertex])
+            if (!visited[vertex])
             {
-                continue;
-            }
-            visited[vertex] = true;
-            Console.WriteLine(vertex);
-            for (int i = 0; i < _size; i++)
-            {
-                if (HasEdge(vertex, i))
+                visited[vertex] = true;
+                Console.WriteLine(_personNames[vertex]);
+                for (int i = 0; i < _size; i++)
                 {
-                    stack.Push(i);
+                    if (HasEdge(vertex, i) && !visited[i])
+                    {
+                        stack.Push(i);
+                    }
                 }
             }
         }
     }
+    
+        
+    /// <summary>
+    /// Проверка, являются ли вершины смежными (имею общее ребро)
+    /// </summary>
+    public bool HasEdge(int from, int to) => _matrix[from][to] == 1;
 
     public void AddEdge(int from, int to)
     {
@@ -85,12 +147,7 @@ public class GraphAdjacencyMatrixJaggedArray
         _matrix[from][to] = 0;
         _matrix[to][from] = 0;
     }
-    
-    public bool HasEdge(int from, int to)
-    {
-        return _matrix[from][to] == 1;
-    }
-    
+
     public int GetRank(int vertex)
     {
         var rank = 0;
@@ -352,6 +409,19 @@ public class GraphAdjacencyMatrixJaggedArray
                     }
                 }
             }
+        }
+        return true;
+    }
+    
+    public bool IsTree()
+    {
+        if (!IsConnected())
+        {
+            return false;
+        }
+        if (GetEdgeCount() != _size - 1)
+        {
+            return false;
         }
         return true;
     }

@@ -1,3 +1,6 @@
-﻿using Towel.DataStructures;
+﻿using GraphLesson;
+using GraphLesson.Representations;
+using Towel.DataStructures;
 
-Console.WriteLine("Hello, World!");
+GraphAdjacencyMatrixJaggedArray.CreateFriends().BFSUsingQueue(0);
+
