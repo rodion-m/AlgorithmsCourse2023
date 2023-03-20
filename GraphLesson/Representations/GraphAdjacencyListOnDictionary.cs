@@ -6,7 +6,7 @@ public partial class GraphAdjacencyListOnDictionary
 
     public static GraphAdjacencyListOnDictionary CreateFriends()
     {
-        Dictionary<string, List<string>> adjacencyList = new Dictionary<string, List<string>> {
+        var adjacencyList = new Dictionary<string, List<string>> {
             { "Bill", new List<string> { "Steve", "Elon", "Jeff" } },
             { "Steve", new List<string> { "Bill", "Elon", "Larry" } },
             { "Elon", new List<string> { "Bill", "Steve", "Larry", "Jeff" } },

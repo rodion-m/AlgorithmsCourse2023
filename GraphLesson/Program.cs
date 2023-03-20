@@ -1,6 +1,5 @@
-﻿using GraphLesson;
-using GraphLesson.Representations;
-using Towel.DataStructures;
+﻿using GraphLesson.Representations;
 
-GraphAdjacencyMatrixJaggedArray.CreateFriends().BFSUsingQueue(0);
+GraphAdjacencyListOnDictionary.CreateFriends().BFS("Bill");
+//GraphAdjacencyMatrixJaggedArray.CreateFriends().BFSUsingQueue(0);
 
