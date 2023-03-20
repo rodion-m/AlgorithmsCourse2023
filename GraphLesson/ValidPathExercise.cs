@@ -13,13 +13,13 @@ public class ValidPathExercise
 
         while (queue.Count > 0)
         {
-            var node = queue.Dequeue();
-            if (node == destination)
+            var currentVertex = queue.Dequeue();
+            if (currentVertex == destination)
             {
                 return true;
             }
 
-            foreach (var neighbor in graph[node])
+            foreach (var neighbor in graph[currentVertex])
             {
                 if (!visited.Contains(neighbor))
                 {
@@ -32,18 +32,18 @@ public class ValidPathExercise
         return false;
     }
 
+    // [[0,1],[1,2],[2,0]]
     private static Dictionary<int, List<int>> CreateGraphAdjacencyList(int n, int[][] edges)
     {
         var graph = new Dictionary<int, List<int>>();
-        for (int i = 0; i < n; i++)
-        {
-            graph.Add(i, new List<int>());
-        }
+        for (int i = 0; i < n; i++) graph.Add(i, new List<int>());
 
         foreach (var edge in edges)
         {
-            graph[edge[0]].Add(edge[1]);
-            graph[edge[1]].Add(edge[0]);
+            var edge1 = edge[0];
+            var edge2 = edge[1];
+            graph[edge1].Add(edge2);
+            graph[edge2].Add(edge1);
         }
 
         return graph;

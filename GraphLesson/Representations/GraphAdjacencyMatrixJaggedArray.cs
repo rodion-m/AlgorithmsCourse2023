@@ -4,7 +4,7 @@ public class GraphAdjacencyMatrixJaggedArray
 {
     private readonly string[] _personNames;
     private readonly int[][] _matrix;
-    private readonly int _size;
+    private readonly int _V;
 
     public static GraphAdjacencyMatrixJaggedArray CreateFriends()
     {
@@ -35,23 +35,24 @@ public class GraphAdjacencyMatrixJaggedArray
     
     public GraphAdjacencyMatrixJaggedArray(int[][] matrix, string[] personNames)
     {
-        _size = matrix.Length;
+        _V = matrix.Length;
         _matrix = matrix;
         _personNames = personNames;
     }
 
-    public GraphAdjacencyMatrixJaggedArray(int size, string[] personNames)
+    public GraphAdjacencyMatrixJaggedArray(int v, string[] personNames)
     {
-        _size = size;
+        _V = v;
         _personNames = personNames;
-        _matrix = new int[size][];
-        for (int i = 0; i < size; i++)
+        _matrix = new int[v][];
+        for (int i = 0; i < v; i++)
         {
-            _matrix[i] = new int[size];
+            _matrix[i] = new int[v];
         }
     }
     
-    public static GraphAdjacencyListOnDictionary MatrixToList(int[][] adjacencyMatrix, List<string> nodeNames)
+    public static GraphAdjacencyListOnDictionary MatrixToList(
+        int[][] adjacencyMatrix, List<string> nodeNames)
     {
         Dictionary<string, List<string>> adjacencyList = new Dictionary<string, List<string>>();
 
@@ -86,22 +87,21 @@ public class GraphAdjacencyMatrixJaggedArray
 
     public void BFSUsingQueue(int startVertex)
     {
-        var visited = new bool[_size];
+        var visited = new bool[_V];
         var queue = new Queue<int>();
         queue.Enqueue(startVertex);
         while (queue.Count != 0)
         {
             var vertex = queue.Dequeue();
-            if (!visited[vertex])
+            if (visited[vertex]) continue;
+            visited[vertex] = true;
+            Console.WriteLine(_personNames[vertex]);
+            for (int i = 0; i < _V; i++) //V - кол-во вершин
             {
-                visited[vertex] = true;
-                Console.WriteLine(_personNames[vertex]);
-                for (int i = 0; i < _size; i++)
+                var hasEdge = _matrix[vertex][i] == 1;
+                if (hasEdge && !visited[i])
                 {
-                    if (HasEdge(vertex, i) && !visited[i])
-                    {
-                        queue.Enqueue(i);
-                    }
+                    queue.Enqueue(i);
                 }
             }
         }
@@ -109,7 +109,7 @@ public class GraphAdjacencyMatrixJaggedArray
 
     public void DFSUsingStack(int startVertex)
     {
-        var visited = new bool[_size];
+        var visited = new bool[_V];
         var stack = new Stack<int>();
         stack.Push(startVertex);
         while (stack.Count != 0)
@@ -119,7 +119,7 @@ public class GraphAdjacencyMatrixJaggedArray
             {
                 visited[vertex] = true;
                 Console.WriteLine(_personNames[vertex]);
-                for (int i = 0; i < _size; i++)
+                for (int i = 0; i < _V; i++)
                 {
                     if (HasEdge(vertex, i) && !visited[i])
                     {
@@ -151,7 +151,7 @@ public class GraphAdjacencyMatrixJaggedArray
     public int GetRank(int vertex)
     {
         var rank = 0;
-        for (int i = 0; i < _size; i++)
+        for (int i = 0; i < _V; i++)
         {
             if (HasEdge(vertex, i))
             {
@@ -163,15 +163,15 @@ public class GraphAdjacencyMatrixJaggedArray
     
     public int GetSize()
     {
-        return _size;
+        return _V;
     }
     
     public int GetEdgeCount()
     {
         var edgeCount = 0;
-        for (int i = 0; i < _size; i++)
+        for (int i = 0; i < _V; i++)
         {
-            for (int j = 0; j < _size; j++)
+            for (int j = 0; j < _V; j++)
             {
                 if (HasEdge(i, j))
                 {
@@ -185,7 +185,7 @@ public class GraphAdjacencyMatrixJaggedArray
     public int GetDegree(int vertex)
     {
         var degree = 0;
-        for (int i = 0; i < _size; i++)
+        for (int i = 0; i < _V; i++)
         {
             if (HasEdge(vertex, i))
             {
@@ -198,7 +198,7 @@ public class GraphAdjacencyMatrixJaggedArray
     public int GetMaxDegree()
     {
         var maxDegree = 0;
-        for (int i = 0; i < _size; i++)
+        for (int i = 0; i < _V; i++)
         {
             var degree = GetDegree(i);
             if (degree > maxDegree)
@@ -212,7 +212,7 @@ public class GraphAdjacencyMatrixJaggedArray
     public int GetMinDegree()
     {
         var minDegree = int.MaxValue;
-        for (int i = 0; i < _size; i++)
+        for (int i = 0; i < _V; i++)
         {
             var degree = GetDegree(i);
             if (degree < minDegree)
@@ -226,13 +226,13 @@ public class GraphAdjacencyMatrixJaggedArray
     public double GetAverageDegree()
     {
         var edgeCount = GetEdgeCount();
-        return (double) edgeCount / _size;
+        return (double) edgeCount / _V;
     }
     
     public int GetMaxRank()
     {
         var maxRank = 0;
-        for (int i = 0; i < _size; i++)
+        for (int i = 0; i < _V; i++)
         {
             var rank = GetRank(i);
             if (rank > maxRank)
@@ -246,7 +246,7 @@ public class GraphAdjacencyMatrixJaggedArray
     public int GetMinRank()
     {
         var minRank = int.MaxValue;
-        for (int i = 0; i < _size; i++)
+        for (int i = 0; i < _V; i++)
         {
             var rank = GetRank(i);
             if (rank < minRank)
@@ -260,18 +260,18 @@ public class GraphAdjacencyMatrixJaggedArray
     public double GetAverageRank()
     {
         var rankSum = 0;
-        for (int i = 0; i < _size; i++)
+        for (int i = 0; i < _V; i++)
         {
             var rank = GetRank(i);
             rankSum += rank;
         }
-        return (double) rankSum / _size;
+        return (double) rankSum / _V;
     }
     
     public int GetSelfLoopCount()
     {
         var selfLoopCount = 0;
-        for (int i = 0; i < _size; i++)
+        for (int i = 0; i < _V; i++)
         {
             if (HasEdge(i, i))
             {
@@ -284,7 +284,7 @@ public class GraphAdjacencyMatrixJaggedArray
     public bool IsComplete()
     {
         var edgeCount = GetEdgeCount();
-        var maxEdgeCount = _size * (_size - 1) / 2;
+        var maxEdgeCount = _V * (_V - 1) / 2;
         return edgeCount == maxEdgeCount;
     }
     
@@ -296,14 +296,14 @@ public class GraphAdjacencyMatrixJaggedArray
     
     public bool IsConnected()
     {
-        var visited = new bool[_size];
+        var visited = new bool[_V];
         var queue = new Queue<int>();
         queue.Enqueue(0);
         while (queue.Count > 0)
         {
             var vertex = queue.Dequeue();
             visited[vertex] = true;
-            for (int i = 0; i < _size; i++)
+            for (int i = 0; i < _V; i++)
             {
                 if (HasEdge(vertex, i) && !visited[i])
                 {
@@ -311,7 +311,7 @@ public class GraphAdjacencyMatrixJaggedArray
                 }
             }
         }
-        for (int i = 0; i < _size; i++)
+        for (int i = 0; i < _V; i++)
         {
             if (!visited[i])
             {
@@ -323,15 +323,15 @@ public class GraphAdjacencyMatrixJaggedArray
     
     public bool IsBipartite()
     {
-        var visited = new bool[_size];
-        var colors = new int[_size];
+        var visited = new bool[_V];
+        var colors = new int[_V];
         var queue = new Queue<int>();
         queue.Enqueue(0);
         while (queue.Count > 0)
         {
             var vertex = queue.Dequeue();
             visited[vertex] = true;
-            for (int i = 0; i < _size; i++)
+            for (int i = 0; i < _V; i++)
             {
                 if (HasEdge(vertex, i))
                 {
@@ -356,7 +356,7 @@ public class GraphAdjacencyMatrixJaggedArray
         {
             return false;
         }
-        for (int i = 0; i < _size; i++)
+        for (int i = 0; i < _V; i++)
         {
             if (GetDegree(i) % 2 != 0)
             {
@@ -372,9 +372,9 @@ public class GraphAdjacencyMatrixJaggedArray
         {
             return false;
         }
-        for (int i = 0; i < _size; i++)
+        for (int i = 0; i < _V; i++)
         {
-            if (GetDegree(i) < _size / 2)
+            if (GetDegree(i) < _V / 2)
             {
                 return false;
             }
@@ -388,14 +388,14 @@ public class GraphAdjacencyMatrixJaggedArray
         {
             return false;
         }
-        var visited = new bool[_size];
+        var visited = new bool[_V];
         var stack = new Stack<int>();
         stack.Push(0);
         while (stack.Count > 0)
         {
             var vertex = stack.Pop();
             visited[vertex] = true;
-            for (int i = 0; i < _size; i++)
+            for (int i = 0; i < _V; i++)
             {
                 if (HasEdge(vertex, i))
                 {
@@ -419,7 +419,7 @@ public class GraphAdjacencyMatrixJaggedArray
         {
             return false;
         }
-        if (GetEdgeCount() != _size - 1)
+        if (GetEdgeCount() != _V - 1)
         {
             return false;
         }
