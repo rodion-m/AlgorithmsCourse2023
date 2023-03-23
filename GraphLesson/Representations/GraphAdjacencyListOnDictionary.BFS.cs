@@ -48,5 +48,5 @@ public partial class GraphAdjacencyListOnDictionary
         }
     }
 
-    public void BFS(string adjacencyList) => BFSShort(_adjacencyList, adjacencyList);
+    public void BFS(string vertex) => BFSShort(_adjacencyList, vertex);
 }

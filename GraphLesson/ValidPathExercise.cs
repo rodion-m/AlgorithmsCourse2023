@@ -35,17 +35,17 @@ public class ValidPathExercise
     // [[0,1],[1,2],[2,0]]
     private static Dictionary<int, List<int>> CreateGraphAdjacencyList(int n, int[][] edges)
     {
-        var graph = new Dictionary<int, List<int>>();
-        for (int i = 0; i < n; i++) graph.Add(i, new List<int>());
+        var adjList = new Dictionary<int, List<int>>();
+        for (int i = 0; i < n; i++) adjList.Add(i, new List<int>());
 
         foreach (var edge in edges)
         {
             var edge1 = edge[0];
             var edge2 = edge[1];
-            graph[edge1].Add(edge2);
-            graph[edge2].Add(edge1);
+            adjList[edge1].Add(edge2);
+            adjList[edge2].Add(edge1);
         }
 
-        return graph;
+        return adjList;
     }
 }

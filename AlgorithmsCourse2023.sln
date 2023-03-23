@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTreeLesson", "BinaryT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLesson", "GraphLesson\GraphLesson.csproj", "{4ABA1737-698E-4104-A5B4-CDC9B63FEF0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinarySearchLesson", "BinarySearchLesson\BinarySearchLesson.csproj", "{44FECB8F-C42C-4E42-97CD-3D8D20D284FB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{4ABA1737-698E-4104-A5B4-CDC9B63FEF0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4ABA1737-698E-4104-A5B4-CDC9B63FEF0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ABA1737-698E-4104-A5B4-CDC9B63FEF0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44FECB8F-C42C-4E42-97CD-3D8D20D284FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44FECB8F-C42C-4E42-97CD-3D8D20D284FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44FECB8F-C42C-4E42-97CD-3D8D20D284FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44FECB8F-C42C-4E42-97CD-3D8D20D284FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
